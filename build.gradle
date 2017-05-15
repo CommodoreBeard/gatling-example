@@ -1,0 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'scala'
+
+dependencies {
+    compile "org.scala-lang:scala-library:2.13.0-M1"
+    compile "io.gatling:gatling-app:2.2.5"
+    compile "io.gatling.highcharts:gatling-charts-highcharts:2.2.5"
+}
+
+task ebayPerTest(description: 'Basic ebay performance test') {
+    dependsOn ':compileScala'
+}
