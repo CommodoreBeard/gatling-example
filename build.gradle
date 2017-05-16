@@ -12,7 +12,7 @@ dependencies {
     compile "io.gatling.highcharts:gatling-charts-highcharts:2.1.7"
 }
 
-task ebayPerTest(description: 'Basic ebay performance test') {
+task ebayPerfTest(description: 'Basic ebay performance test') {
     dependsOn ':compileScala'
     doLast {
         [
@@ -23,7 +23,9 @@ task ebayPerTest(description: 'Basic ebay performance test') {
 
                 jvmArgs = ['-Dgatling.core.directory.binaries=./build/classes/main',
                            '-Dgatling.http.enableGA=false',
-                           "-Dgatling.http.warmUpUrl=https://ebay.co.uk"
+                           "-Dgatling.http.warmUpUrl=https://ebay.co.uk",
+                           "-DrepeatTimes=${repeatTimes}",
+                           "-DuserCount=${userCount}"
                 ]
 
                 main = "io.gatling.app.Gatling"
