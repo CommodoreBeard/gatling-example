@@ -12,3 +12,15 @@ object Assertions {
     global.responseTime.percentile3.lessThan(7500),
     global.failedRequests.count.is(0))
 }
+
+object SearchItems {
+  val itemList: List[String] = List(
+    "iPhone",
+    "iPad",
+    "MacBook",
+    "iMac",
+    "Samsung Galaxy",
+    "Samsung Tablet",
+    "HTC"
+  )
+}
